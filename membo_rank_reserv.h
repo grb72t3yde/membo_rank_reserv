@@ -1,0 +1,11 @@
+#ifndef LIR_AME_H
+#define LIR_AME_H
+
+#define STATIC 0
+#define DYNAMIC 1
+
+#define CONFIG_STATIC_THRESHOLD 0
+#define NR_SAMPLE_POINTS 5
+#define CONFIG_SAMPLING_PERIOD_IN_SEC 15
+
+#endif
