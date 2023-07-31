@@ -70,7 +70,6 @@ int main()
         //ringBufWrite
         int *usage;
         uint32_t current_usage;
-        double time_spent = 0.0;
         
         dpu_membo_get_usage(&current_usage);
         ringBufWrite(&dpu_usage, current_usage);
@@ -97,15 +96,16 @@ int main()
 
         int next_threshold = ceil(calculate_threshold(x, y, NR_SAMPLE_POINTS - 1, current_usage));
 
-        //next_threshold *= 2;
+        next_threshold *= 2;
+
         if (next_threshold >= 0 && next_threshold <= 16) {
-            printf("lir-membo: set threshold to %d\n", next_threshold);
+            printf(KBLU"lir-membo: set threshold to %d\n", next_threshold);
             dpu_membo_set_threshold(next_threshold);
         } else if (next_threshold > 16) {
-            printf("lir-membo: set threshold to %d\n", 16);
+            printf(KBLU"lir-membo: set threshold to %d\n", 16);
             dpu_membo_set_threshold(16);
         } else {
-            printf("lir-membo: threshold not changed\n");
+            printf(KBLU"lir-membo: threshold not changed\n");
         }
 
 cont:
